@@ -1,0 +1,35 @@
+{
+  "name": "paramter-library",
+  "version": "1.0.0",
+  "description": "Online Editor Parameter Library",
+  "private": false,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --open --config config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "Xwp",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "postcss-preset-env": "^6.7.0",
+    "sass": "^1.37.2",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.47.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "froala-editor": "^4.0.4"
+  }
+}

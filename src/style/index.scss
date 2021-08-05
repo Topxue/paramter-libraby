@@ -1,0 +1,97 @@
+@import '~froala-editor/css/froala_editor.pkgd.min.css';
+@import "~froala-editor/css/third_party/font_awesome.css";
+@import "~froala-editor/css/plugins/image.min.css";
+@import "~froala-editor/css/plugins/draggable.min.css";
+@import "./library.scss";
+
+body, html {
+  padding: 0;
+  margin: 0;
+  background: #f7f8f8;
+}
+
+#root {
+  margin-top: 20px;
+  //height: calc(100vh - 20px);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  #left-container {
+    width: 273px;
+    max-width: 272px;
+    text-align: center;
+  }
+
+  #right-container {
+    @extend #left-container;
+  }
+
+  #center-container {
+    //width: 802px;
+    flex: 1;
+    margin: 0 20px;
+    padding: 10px;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+  }
+
+  #right-container {
+    width: 280px;
+    box-sizing: border-box;
+
+    .library-container {
+      background: #ffffff;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
+      border-radius: 4px;
+
+      .library-item {
+        width: 25%;
+        height: 54px;
+        text-align: center;
+        border-radius: 3px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4c596e;
+        flex-direction: column;
+        user-select: none;
+
+        span {
+          font-size: 14px;
+          padding-top: 5px;
+        }
+
+        &:hover {
+          background: #e5e7ea;
+        }
+      }
+    }
+  }
+}
+
+/**template**/
+.focus-style {
+  border: none;
+  max-width: 148px;
+  max-height: 15px;
+  line-height: 15px;
+  text-align: left;
+  user-select: none;
+  border-bottom: 1px solid #eee;
+
+  &::placeholder {
+    text-align: center;
+  }
+
+  &:focus {
+    outline: none;
+    border: 1px solid #2489f2;
+  }
+}
