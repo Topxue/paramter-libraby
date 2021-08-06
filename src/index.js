@@ -8,11 +8,13 @@ import 'froala-editor/js/plugins/draggable.min';
 
 import textTpl from './template/text';
 import imageTemplate from './template/image';
-import {select, selects} from './template/select'
+import {select, selects} from './template/select';
+import idCard from './template/id-card';
 
 import MyText from './library/Text';
 import MyImage from './library/Image';
 import MySelect from './library/Select';
+import MyIdNumber from './library/IDcard';
 
 import Dom from './utils/Dom';
 import {libraryArray, froalaConfig} from './config';
@@ -56,39 +58,28 @@ class EditorLibrary {
       })
 
       // 单选
-      // new MySelect().render({
-      //   elem: '.select-input',
-      //   data: [{id: '1', value: '测试'}, {id: 2, value: '测试1'}],
-      //   done: function (value) {
-      //     console.log(value, 'done...')
-      //   }
-      // })
-
-      new MySelect({
-        elem: '.select-input',
-        data: [{id: '1', value: '测试'}, {id: 2, value: '测试1'}],
+      MySelect.render({
+        elem: '#select',
+        data: [{id: '1', value: '测试'}, {id: 2, value: '单选'}],
         done: function (value) {
-          console.log(value, 'done...')
+          console.log(value, 'select')
         }
       })
 
       // 多选
-      // new MySelect({
-      //   elem: '.select-input',
-      //   // multiple: true,
-      //   data: [{id: '1', value: '测试'}, {id: 2, value: '测试1'}],
-      //   done: function (value) {
-      //     console.log(value, 'done2...')
-      //   }
-      // })
-      // new MySelect().render({
-      //   elem: '.select-input',
-      //   multiple: true,
-      //   data: [{id: '1', value: '测试'}, {id: 2, value: '测试1'}],
-      //   done: function (value) {
-      //     console.log(value, 'done...')
-      //   }
-      // })
+      MySelect.render({
+        elem: '#selects',
+        multiple: true,
+        data: [{id: '1', value: '测试'}, {id: 2, value: '多选'}],
+        done: function (value) {
+          console.log(value, 'selects')
+        }
+      })
+
+      // 身份证
+      MyIdNumber.render({
+        elem: '.param-person'
+      })
     })
 
     console.log(this.Froala)
@@ -152,6 +143,8 @@ class EditorLibrary {
       'select': () => froala.html.insert(select),
       // 多选
       'selects': () => froala.html.insert(selects),
+      // 身份证
+      'idCard': () => froala.html.insert(idCard().innerHTML)
     }
 
     return func[paramType] && func[paramType]()

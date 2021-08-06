@@ -10,7 +10,11 @@ module.exports = merge(common, {
   devtool: 'eval-cheap-module-source-map',
   // 开发模式，自动更新改动
   devServer: {
-    contentBase: './dist',
+    contentBase: './src',
+    host: 'localhost',
+    port: 8888,
+    hot: true,
+    // hotOnly: true
   },
   // 输出
   output: {

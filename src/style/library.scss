@@ -59,6 +59,8 @@ $font-color: #c1c6cd;
   box-sizing: border-box;
   margin: 10px 0;
   padding: 0;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  position: absolute;
 
   &::before {
     content: " ";
@@ -77,6 +79,7 @@ $font-color: #c1c6cd;
     margin-top: 5px;
     cursor: pointer;
     user-select: none;
+    color: #606266;
 
     &:hover {
       background: #f5f7fa;
@@ -92,6 +95,20 @@ $font-color: #c1c6cd;
     position: absolute;
     right: 12px;
     font-weight: bold;
+  }
+}
+
+.param-person {
+  .person-card-item {
+    outline: none;
+    width: 16px;
+    height: 18px;
+    text-align: center;
+    margin-right: 5px;
+    border: 1px solid #333;
+    &:focus {
+      border-color: $base-color;
+    }
   }
 }
 

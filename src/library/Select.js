@@ -1,11 +1,13 @@
 /** Created by xwp on 2021-08-04 **/
 
-import '../customPopups/select';
+// import '../customPopups/select';
 import {sibling} from '../utils';
 
 const SELECT_ACTIVE = 'active-select';
 const SELECT_OPTION_CLASSNAME = 'select-item-x';
 const SELECT_CONTAINER_CLASSNAME = 'select-item-warper-x';
+
+const classList = [SELECT_OPTION_CLASSNAME, SELECT_CONTAINER_CLASSNAME, 'select-focus', 'select-input'];
 
 class MySelect {
   constructor(props) {
@@ -15,11 +17,13 @@ class MySelect {
       multiple: false
     };
     // 当前触发元素
-    this.currentTrigger = null;
     // 多选value值
+    this.currentTrigger = null;
     this.multiples = [];
 
     this.render(props);
+
+    this.globalEventLister();
   }
 
 
@@ -36,13 +40,41 @@ class MySelect {
     this.props = props;
 
     this.initEvent();
+  }
 
-    if (this.props?.data.length) {
-      this.initPopups(this.getSelectOptions());
-      this.initSelectedEvent();
-    }
+  /**
+   * 全局事件监听
+   */
+  globalEventLister() {
+    document.querySelector('body').addEventListener('click', (event) => {
+      const target = event.target;
 
-    console.log(props)
+      if (!classList.includes(...target.classList)) {
+        const selectContainers = document.querySelectorAll('.' + SELECT_CONTAINER_CLASSNAME);
+
+        selectContainers.forEach(element => element.style.display = 'none');
+      }
+    })
+  }
+
+  /**
+   * 初始化事件
+   */
+  initEvent() {
+    const elem = document.querySelector(this.props.elem);
+    if (!elem) return;
+
+    this.currentTrigger = elem;
+
+    const parentNode = elem.parentNode;
+
+    parentNode.append(this.getSelectOptions());
+
+    this.initSelectedEvent();
+
+    elem.addEventListener('click', () => {
+      this.showHidePopup('block')
+    });
   }
 
   /**
@@ -50,8 +82,6 @@ class MySelect {
    */
   getSelectOptions() {
     const data = this.props.data;
-
-    const outWarper = document.createElement('div');
 
     const selectContainer = document.createElement('ul');
     selectContainer.className = SELECT_CONTAINER_CLASSNAME;
@@ -61,46 +91,53 @@ class MySelect {
     data.forEach(list => {
       const option = document.createElement('li');
       option.className = SELECT_OPTION_CLASSNAME;
-      option.setAttribute('data-id', list.id);
       option.innerHTML = list.value;
+      option.contentEditable = 'false';
+      option.setAttribute('data-id', list.id);
 
       Fragment.append(option);
     })
 
     selectContainer.append(Fragment);
+    // 设置默认隐藏
+    selectContainer.style.display = 'none';
 
-    outWarper.append(selectContainer);
-
-    return outWarper;
+    return selectContainer;
   }
 
   /**
-   * 初始化Popups内容
+   * 显示隐藏下拉
    */
-  initPopups(customLayer) {
-    return window.$Froala['customSelect'].initPopup(customLayer.innerHTML);
+  showHidePopup(state) {
+    const elem = this.currentTrigger;
+
+    const selectContainer = elem.parentNode.lastChild;
+    if (selectContainer.classList.contains(SELECT_CONTAINER_CLASSNAME)) {
+      selectContainer.style.display = state;
+    }
+
+    if (state === 'block') {
+      console.log(document.querySelectorAll('.' + SELECT_CONTAINER_CLASSNAME));
+
+      this.setPosition();
+    }
   }
 
   /**
-   * 初始化事件
+   * 设置定位
    */
-  initEvent() {
-    const selects = document.querySelectorAll(this.props.elem);
+  setPosition() {
+    const elem = this.currentTrigger;
 
-    selects.forEach(element => {
-      element.addEventListener('click', this.handlePopups.bind(this));
-    })
-  }
+    const left = elem.offsetLeft;
+    const top = elem.offsetTop + elem.offsetHeight;
 
-  /**
-   * Popup事件
-   */
-  handlePopups(event) {
-    this.currentTrigger = event.target;
+    const selectContainer = elem.parentNode.lastChild;
 
-    this.setEchoSelectOption(event.target);
-
-    window.$Froala['customSelect'].showPopup(event);
+    if (selectContainer.classList.contains(SELECT_CONTAINER_CLASSNAME)) {
+      selectContainer.style.left = left + 'px';
+      selectContainer.style.top = top + 'px';
+    }
   }
 
   /**
@@ -123,14 +160,13 @@ class MySelect {
 
     if (target.tagName.toLowerCase() !== 'li') return;
 
-    const {done} = this.props;
+    const {done, multiple} = this.props;
 
     // 是否多选
-    const isMultiple = this.currentTrigger.getAttribute('multiple');
-
-    if (!isMultiple) {
+    if (!multiple) {
       this.singleChoice(target);
-      window.$Froala['customSelect'].hidePopup();
+
+      this.showHidePopup('none');
     } else {
       this.multipleChoice(target);
     }
@@ -206,6 +242,13 @@ class MySelect {
 
 }
 
+
+const select = {
+  render(props) {
+    return new MySelect(props);
+  }
+}
+
 // export default new MySelect;
 
-export default MySelect;
+export default select;

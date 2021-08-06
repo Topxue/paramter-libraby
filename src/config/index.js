@@ -44,7 +44,6 @@ export const libraryArray = [
     type: 'select',
     label: '单选',
     iconClass: 'fa fa-check-circle'
-    // iconClass: 'fa fa-check-square'
   },
   {
     type: 'selects',
