@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b83fc647-53b4-4bee-9a38-14910e1126b7" name="Default Changelist" comment="">
+    <list default="true" id="b83fc647-53b4-4bee-9a38-14910e1126b7" name="Default Changelist" comment="feat(pramter-library): 参数库属性开发">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/customPopups/image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/customPopups/image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/library/IDcard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/IDcard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/library/Image.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/Image.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/library.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/library.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/template/text.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/template/text.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Dom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Dom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,8 +62,16 @@
       <workItem from="1628058281396" duration="33892000" />
       <workItem from="1628154224427" duration="48000" />
       <workItem from="1628154316586" duration="16609000" />
-      <workItem from="1628233110691" duration="36964000" />
+      <workItem from="1628233110691" duration="37336000" />
     </task>
+    <task id="LOCAL-00001" summary="feat(pramter-library): 参数库属性开发">
+      <created>1628671354451</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1628671354451</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -89,5 +88,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat(pramter-library): 参数库属性开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat(pramter-library): 参数库属性开发" />
   </component>
 </project>
