@@ -93,6 +93,9 @@ const Dom = {
   find(selector, scope) {
     return (scope || document).querySelectorAll(selector)
   },
+  getElem(selector, scope) {
+    return (scope || document).querySelector(selector)
+  },
   parent(node) {
     return node.parentNode
   },

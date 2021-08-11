@@ -1,6 +1,7 @@
 $base-color: #2489f3;
 $font-color: #c1c6cd;
 
+/**Popup样式**/
 .fr-popup {
   border-top: 5px solid #222 !important;
   border-radius: 0;
@@ -20,14 +21,14 @@ $font-color: #c1c6cd;
   }
 }
 
+/**图片样式**/
 .fr-view img.fr-dii.fr-fil {
   object-fit: contain;
 }
 
-
+/**下拉框样式**/
 .select-focus {
   max-width: 146px;
-  max-height: 14px;
   line-height: 14px;
   font-size: 12px;
   display: inline-block;
@@ -35,7 +36,6 @@ $font-color: #c1c6cd;
   border: 1px solid #eeeeee;
   color: #001330;
   text-align: center;
-  //position: relative;
 
   &:focus {
     border: 1px solid $base-color;
@@ -43,6 +43,16 @@ $font-color: #c1c6cd;
 
   &::placeholder {
     color: $font-color;
+  }
+}
+
+.fr-popup .fr-image-upload-layer .fr-form input {
+  width: 100% !important;
+}
+
+.color-select {
+  input {
+    width: 60px !important;
   }
 }
 
@@ -98,6 +108,7 @@ $font-color: #c1c6cd;
   }
 }
 
+/**身份证样式**/
 .param-person {
   .person-card-item {
     outline: none;
@@ -106,6 +117,7 @@ $font-color: #c1c6cd;
     text-align: center;
     margin-right: 5px;
     border: 1px solid #333;
+
     &:focus {
       border-color: $base-color;
     }

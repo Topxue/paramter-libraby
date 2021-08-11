@@ -6,7 +6,8 @@ const Reg = /^[0-9]+.?[0-9]*$/;
 class MyIdNumber {
   constructor() {
     this.props = {};
-
+    // 当前选择的元素目标
+    this.target = null;
   }
 
   /**
@@ -19,7 +20,6 @@ class MyIdNumber {
     this.props = props;
 
     this.initEvent();
-    console.log(props)
   }
 
   /**
@@ -32,6 +32,27 @@ class MyIdNumber {
       element.addEventListener('keyup', this.handleKeyUp.bind(this));
       element.addEventListener('keydown', this.handleKeyDown.bind(this));
     })
+
+    // window.$Froala.events = {
+    //   'contentChanged': function () {
+    //     console.log('    console.log(window.$Froala.events[\'contentChanged\'])\n')
+    //   }
+    // }
+  }
+
+  /**
+   * 获取身份证号
+   */
+  getIdCardNumber() {
+    const {done} = this.props;
+
+    const target = this.target;
+
+    const inputs = [...target.parentNode.children];
+
+    const value = inputs.map(element => element.value).join('');
+
+    done && done(value);
   }
 
   /**
@@ -40,14 +61,17 @@ class MyIdNumber {
   handleKeyUp(event) {
     const target = event.target;
 
+    this.target = target;
+
+    this.getIdCardNumber();
+
     if (!Reg.test(event.key)) return;
 
     target.value = +event.key;
     target.setAttribute('value', +event.key);
 
-    if (target.nextSibling) {
-      target.nextSibling.focus();
-    }
+    target.nextSibling && target.nextSibling.focus();
+
   }
 
   /**
@@ -58,12 +82,12 @@ class MyIdNumber {
     const target = event.target;
 
     if (event.code === 'Backspace') {
-      target.value = '';
-      target.setAttribute('value', '');
-
-      if (target.previousSibling) {
-        target.previousSibling.focus();
+      if (target.value) {
+        target.value = '';
+        target.setAttribute('value', '');
       }
+
+      target.previousSibling && target.previousSibling.focus();
     }
 
   }

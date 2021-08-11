@@ -14,10 +14,44 @@
     <button id="submitData">获取测试数据</button>
     <button id="insertData">插入测试数据</button>
     <button id="registerEvent">注册事件</button>
-
   </div>
   <div id="center-container"></div>
-  <div id="right-container"></div>
+  <div id="right-container">
+    <div id="control-panel"></div>
+    <div id="control-attr">
+      <div class="attr-item-content">
+        <p>参数名称</p>
+        <input id="param-name" type="text" placeholder="请输入参数名称">
+      </div>
+      <div class="attr-item-content">
+        <p>默认值</p>
+        <input id="default-value" type="text" placeholder="请输入">
+      </div>
+
+      <div class="attr-item-content">
+        <p>字符限制</p>
+        <input id="max-length" type="number" min="1" placeholder="请输入">
+      </div>
+      <!--字体-->
+      <div class="attr-item-content font-container"></div>
+      <div class="attr-item-content">
+        <p>字体大小</p>
+        <select class="font-size-select"></select>
+      </div>
+      <div class="attr-item-content">
+        <p>字体粗细</p>
+        <select id="font-weight">
+          <option value="inherit">默认</option>
+          <option value="bold">加粗</option>
+          <option value="normal">不加粗</option>
+        </select>
+      </div>
+      <div class="attr-item-content color-select">
+        <p>字体颜色</p>
+        <input id="select-color" type="color">
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

@@ -18,6 +18,7 @@ FroalaEditor['POPUP_TEMPLATES'][COMMAND_NAME] = '[_CUSTOM_LAYER_]';
 
 FroalaEditor['PLUGINS'].customImage = function (editor) {
 
+  // 初始化 Popup
   function initPopup() {
 
     const template = {
@@ -25,31 +26,32 @@ FroalaEditor['PLUGINS'].customImage = function (editor) {
     }
 
 
-    let $popup = editor.popups.create(COMMAND_NAME, template)
+    let $popup = editor.popups.create(COMMAND_NAME, template);
 
-    return $popup
+    return $popup;
   }
 
+  // 显示自定义 Popup
   function showPopup(event) {
-    const target = event.target
-    let $popup = editor.popups.get(COMMAND_NAME)
+    const target = event.target;
+    let $popup = editor.popups.get(COMMAND_NAME);
 
-    if (!$popup) $popup = initPopup()
+    if (!$popup) $popup = initPopup();
 
-    editor.popups.setContainer(COMMAND_NAME, editor.$tb)
+    editor.popups.setContainer(COMMAND_NAME, editor.$tb);
 
-    const {left, top, bottom, width} = target.getBoundingClientRect()
+    const {left, top, bottom, width} = target.getBoundingClientRect();
 
     const scrollLeft = document.documentElement.scrollLeft, scrollTop = document.documentElement.scrollTop;
 
-    const tops = top + (editor.opts.toolbarBottom ? 10 : top - 10)
+    const tops = top + (editor.opts.toolbarBottom ? 10 : top - 10);
 
-    editor.popups.show(COMMAND_NAME, left - width + scrollLeft + 20, bottom + scrollTop + 5, tops)
+    editor.popups.show(COMMAND_NAME, left - width + scrollLeft, bottom + scrollTop + 5, tops);
   }
 
-  // Hide the custom popup.
+  // 隐藏自定义Popup
   function hidePopup() {
-    editor.popups.hide(COMMAND_NAME)
+    editor.popups.hide(COMMAND_NAME);
   }
 
   return {

@@ -54,5 +54,60 @@ export const libraryArray = [
     type: 'idCard',
     label: '身份证',
     iconClass: 'fa fa-id-card'
+  },
+  {
+    type: 'table',
+    label: '动态表格',
+    iconClass: 'fa fa-table'
+  }
+]
+
+/**
+ * 字体
+ */
+export const fonts = [
+  {
+    font: 'Microsoft YaHei',
+    fontName: '微软雅黑'
+  },
+  {
+    font: 'SimSun, STSong',
+    fontName: '宋体'
+  },
+  {
+    font: 'SimHei, STHeiti',
+    fontName: '黑体'
+  },
+  {
+    font: 'FangSong, STFangsong',
+    fontName: '仿宋'
+  },
+  {
+    font: 'KaiTi, STKaiti',
+    fontName: '楷体'
+  },
+  {
+    font: 'Arial',
+    fontName: 'Arial'
+  },
+  {
+    font: 'Georgia',
+    fontName: 'Georgia'
+  },
+  {
+    font: 'Impact',
+    fontName: 'Impact'
+  },
+  {
+    font: 'Tahoma',
+    fontName: 'Tahoma'
+  },
+  {
+    font: 'Times New Roman',
+    fontName: 'Times New Roman'
+  },
+  {
+    font: 'Verdana',
+    fontName: 'Verdana'
   }
 ]

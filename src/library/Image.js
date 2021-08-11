@@ -56,6 +56,10 @@ class MyImage {
     const target = event.target;
     const done = this.props?.done;
 
+    // window.$Froala.image.upload([target.files[0]]);
+
+    // window.$Froala['customImage'].hidePopup();
+
     if (window.FileReader) {
       let reader = new FileReader();
       reader.readAsDataURL(target.files[0]);
